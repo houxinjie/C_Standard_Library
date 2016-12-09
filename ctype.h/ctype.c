@@ -1,7 +1,7 @@
 #include "ctype.h"
 #include <limits.h>
 #include <stdio.h>
-#if EOF != -1 || UCHAR_MAX != 255
+#if EOF != -1 || CHAR_MAX != 127
 #error WRONG TOLOWER TABLE
 #endif
 
@@ -103,7 +103,7 @@ static const short toup_tab[257] = {EOF,
 
 const short *_Toupper = &toup_tab[1];
 
-static const short ctyp_tab[257] = {0,
+static const short ctyp_tab[129] = {0,
     _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB, _CN, _CN, _CN, _CN, _CN, _BB, _BB,
     _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB, _BB,
     _SP, _PU, _PU, _PU, _PU, _PU, _PU, _PU, _PU, _PU, _PU, _PU, _PU, _PU, _PU, _PU,

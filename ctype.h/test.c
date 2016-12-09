@@ -7,12 +7,12 @@ static void prclass(const char *name, int (*fn)(int)){
     int c;
     fputs(name, stdout);
     fputs(": ", stdout);
-    for (c = EOF; c <= UCHAR_MAX; ++c) {
+    for (c = EOF; c <= CHAR_MAX; ++c) {
         if ((*fn)(c)) {
             fputc(c, stdout);
         }
-        fputs("\n", stdout);
     }
+    fputs("\n", stdout);
 }
 
 int main(){
@@ -44,7 +44,7 @@ int main(){
     }
     assert(isspace(' ') && isprint(' '));
     assert((iscntrl)('\a') && (iscntrl)('\b'));
-    for(c = EOF; c <= UCHAR_MAX; ++c){
+    for(c = EOF; c <= CHAR_MAX; ++c){
         if(isdigit(c)){
             assert(isalnum(c));
         }
@@ -93,7 +93,7 @@ int main(){
     }
     assert(isspace(' ') && isprint(' '));
     assert(iscntrl('\a') && iscntrl('\b'));
-    for(c = EOF; c <= UCHAR_MAX; ++c){
+    for(c = EOF; c <= CHAR_MAX; ++c){
         if(isdigit(c)){
             assert(isalnum(c));
         }
